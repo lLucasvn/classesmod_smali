@@ -1,0 +1,100 @@
+.class final LP0/b$f;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Lo2/d;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = LP0/b;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1a
+    name = "f"
+.end annotation
+
+
+# static fields
+.field static final a:LP0/b$f;
+
+.field private static final b:Lo2/c;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .registers 1
+
+    .line 1
+    new-instance v0, LP0/b$f;
+
+    .line 3
+    invoke-direct {v0}, LP0/b$f;-><init>()V
+
+    .line 6
+    sput-object v0, LP0/b$f;->a:LP0/b$f;
+
+    .line 8
+    const-string v0, "originAssociatedProductId"
+
+    .line 10
+    invoke-static {v0}, Lo2/c;->d(Ljava/lang/String;)Lo2/c;
+
+    .line 13
+    move-result-object v0
+
+    .line 14
+    sput-object v0, LP0/b$f;->b:Lo2/c;
+
+    .line 16
+    return-void
+.end method
+
+.method private constructor <init>()V
+    .registers 1
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 4
+    return-void
+.end method
+
+
+# virtual methods
+.method public bridge synthetic a(Ljava/lang/Object;Ljava/lang/Object;)V
+    .registers 3
+
+    .line 1
+    check-cast p1, LP0/r;
+
+    .line 3
+    check-cast p2, Lo2/e;
+
+    .line 5
+    invoke-virtual {p0, p1, p2}, LP0/b$f;->b(LP0/r;Lo2/e;)V
+
+    .line 8
+    return-void
+.end method
+
+.method public b(LP0/r;Lo2/e;)V
+    .registers 4
+
+    .line 1
+    sget-object v0, LP0/b$f;->b:Lo2/c;
+
+    .line 3
+    invoke-virtual {p1}, LP0/r;->b()Ljava/lang/Integer;
+
+    .line 6
+    move-result-object p1
+
+    .line 7
+    invoke-interface {p2, v0, p1}, Lo2/e;->a(Lo2/c;Ljava/lang/Object;)Lo2/e;
+
+    .line 10
+    return-void
+.end method

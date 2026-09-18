@@ -1,0 +1,77 @@
+.class final LB/e$a$b;
+.super Ld3/d;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = LB/e$a;->c(Ljava/util/List;LB/i;Lkotlin/coroutines/d;)Ljava/lang/Object;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x18
+    name = null
+.end annotation
+
+
+# instance fields
+.field d:Ljava/lang/Object;
+
+.field e:Ljava/lang/Object;
+
+.field synthetic f:Ljava/lang/Object;
+
+.field final synthetic g:LB/e$a;
+
+.field h:I
+
+
+# direct methods
+.method constructor <init>(LB/e$a;Lkotlin/coroutines/d;)V
+    .registers 3
+
+    .line 1
+    iput-object p1, p0, LB/e$a$b;->g:LB/e$a;
+
+    .line 3
+    invoke-direct {p0, p2}, Ld3/d;-><init>(Lkotlin/coroutines/d;)V
+
+    .line 6
+    return-void
+.end method
+
+
+# virtual methods
+.method public final q(Ljava/lang/Object;)Ljava/lang/Object;
+    .registers 3
+
+    .line 1
+    iput-object p1, p0, LB/e$a$b;->f:Ljava/lang/Object;
+
+    .line 3
+    iget p1, p0, LB/e$a$b;->h:I
+
+    .line 5
+    const/high16 v0, -0x80000000
+
+    .line 7
+    or-int/2addr p1, v0
+
+    .line 8
+    iput p1, p0, LB/e$a$b;->h:I
+
+    .line 10
+    iget-object p1, p0, LB/e$a$b;->g:LB/e$a;
+
+    .line 12
+    const/4 v0, 0x0
+
+    .line 13
+    invoke-static {p1, v0, v0, p0}, LB/e$a;->a(LB/e$a;Ljava/util/List;LB/i;Lkotlin/coroutines/d;)Ljava/lang/Object;
+
+    .line 16
+    move-result-object p1
+
+    .line 17
+    return-object p1
+.end method

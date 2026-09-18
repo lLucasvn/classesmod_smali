@@ -1,0 +1,274 @@
+.class public final Lcz/msebera/android/httpclient/conn/util/PublicSuffixMatcherLoader;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation build Lcz/msebera/android/httpclient/annotation/ThreadSafe;
+.end annotation
+
+
+# static fields
+.field private static volatile DEFAULT_INSTANCE:Lcz/msebera/android/httpclient/conn/util/PublicSuffixMatcher;
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 1
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 4
+    return-void
+.end method
+
+.method public static getDefault()Lcz/msebera/android/httpclient/conn/util/PublicSuffixMatcher;
+    .registers 4
+
+    .line 1
+    sget-object v0, Lcz/msebera/android/httpclient/conn/util/PublicSuffixMatcherLoader;->DEFAULT_INSTANCE:Lcz/msebera/android/httpclient/conn/util/PublicSuffixMatcher;
+
+    .line 3
+    if-nez v0, :cond_48
+
+    .line 5
+    const-class v0, Lcz/msebera/android/httpclient/conn/util/PublicSuffixMatcherLoader;
+
+    .line 7
+    monitor-enter v0
+
+    .line 8
+    :try_start_7
+    sget-object v1, Lcz/msebera/android/httpclient/conn/util/PublicSuffixMatcherLoader;->DEFAULT_INSTANCE:Lcz/msebera/android/httpclient/conn/util/PublicSuffixMatcher;
+
+    .line 10
+    if-nez v1, :cond_44
+
+    .line 12
+    const-class v1, Lcz/msebera/android/httpclient/conn/util/PublicSuffixMatcherLoader;
+
+    .line 14
+    const-string v2, "/mozilla/public-suffix-list.txt"
+
+    .line 16
+    invoke-virtual {v1, v2}, Ljava/lang/Class;->getResource(Ljava/lang/String;)Ljava/net/URL;
+
+    .line 19
+    move-result-object v1
+    :try_end_13
+    .catchall {:try_start_7 .. :try_end_13} :catchall_1c
+
+    .line 20
+    if-eqz v1, :cond_32
+
+    .line 22
+    :try_start_15
+    invoke-static {v1}, Lcz/msebera/android/httpclient/conn/util/PublicSuffixMatcherLoader;->load(Ljava/net/URL;)Lcz/msebera/android/httpclient/conn/util/PublicSuffixMatcher;
+
+    .line 25
+    move-result-object v1
+
+    .line 26
+    sput-object v1, Lcz/msebera/android/httpclient/conn/util/PublicSuffixMatcherLoader;->DEFAULT_INSTANCE:Lcz/msebera/android/httpclient/conn/util/PublicSuffixMatcher;
+    :try_end_1b
+    .catch Ljava/io/IOException; {:try_start_15 .. :try_end_1b} :catch_1e
+    .catchall {:try_start_15 .. :try_end_1b} :catchall_1c
+
+    .line 28
+    goto :goto_44
+
+    .line 29
+    :catchall_1c
+    move-exception v1
+
+    .line 30
+    goto :goto_46
+
+    .line 31
+    :catch_1e
+    move-exception v1
+
+    .line 32
+    :try_start_1f
+    new-instance v2, Lcz/msebera/android/httpclient/extras/HttpClientAndroidLog;
+
+    .line 34
+    const-class v3, Lcz/msebera/android/httpclient/conn/util/PublicSuffixMatcherLoader;
+
+    .line 36
+    invoke-direct {v2, v3}, Lcz/msebera/android/httpclient/extras/HttpClientAndroidLog;-><init>(Ljava/lang/Object;)V
+
+    .line 39
+    invoke-virtual {v2}, Lcz/msebera/android/httpclient/extras/HttpClientAndroidLog;->isWarnEnabled()Z
+
+    .line 42
+    move-result v3
+
+    .line 43
+    if-eqz v3, :cond_44
+
+    .line 45
+    const-string v3, "Failure loading public suffix list from default resource"
+
+    .line 47
+    invoke-virtual {v2, v3, v1}, Lcz/msebera/android/httpclient/extras/HttpClientAndroidLog;->warn(Ljava/lang/Object;Ljava/lang/Throwable;)V
+
+    .line 50
+    goto :goto_44
+
+    .line 51
+    :cond_32
+    new-instance v1, Lcz/msebera/android/httpclient/conn/util/PublicSuffixMatcher;
+
+    .line 53
+    const-string v2, "com"
+
+    .line 55
+    filled-new-array {v2}, [Ljava/lang/String;
+
+    .line 58
+    move-result-object v2
+
+    .line 59
+    invoke-static {v2}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    .line 62
+    move-result-object v2
+
+    .line 63
+    const/4 v3, 0x0
+
+    .line 64
+    invoke-direct {v1, v2, v3}, Lcz/msebera/android/httpclient/conn/util/PublicSuffixMatcher;-><init>(Ljava/util/Collection;Ljava/util/Collection;)V
+
+    .line 67
+    sput-object v1, Lcz/msebera/android/httpclient/conn/util/PublicSuffixMatcherLoader;->DEFAULT_INSTANCE:Lcz/msebera/android/httpclient/conn/util/PublicSuffixMatcher;
+
+    .line 69
+    :cond_44
+    :goto_44
+    monitor-exit v0
+
+    .line 70
+    goto :goto_48
+
+    .line 71
+    :goto_46
+    monitor-exit v0
+    :try_end_47
+    .catchall {:try_start_1f .. :try_end_47} :catchall_1c
+
+    .line 72
+    throw v1
+
+    .line 73
+    :cond_48
+    :goto_48
+    sget-object v0, Lcz/msebera/android/httpclient/conn/util/PublicSuffixMatcherLoader;->DEFAULT_INSTANCE:Lcz/msebera/android/httpclient/conn/util/PublicSuffixMatcher;
+
+    .line 75
+    return-object v0
+.end method
+
+.method public static load(Ljava/io/File;)Lcz/msebera/android/httpclient/conn/util/PublicSuffixMatcher;
+    .registers 2
+
+    .line 7
+    const-string v0, "File"
+
+    invoke-static {p0, v0}, Lcz/msebera/android/httpclient/util/Args;->notNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    .line 8
+    new-instance v0, Ljava/io/FileInputStream;
+
+    invoke-direct {v0, p0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+
+    .line 9
+    :try_start_a
+    invoke-static {v0}, Lcz/msebera/android/httpclient/conn/util/PublicSuffixMatcherLoader;->load(Ljava/io/InputStream;)Lcz/msebera/android/httpclient/conn/util/PublicSuffixMatcher;
+
+    move-result-object p0
+    :try_end_e
+    .catchall {:try_start_a .. :try_end_e} :catchall_12
+
+    .line 10
+    invoke-virtual {v0}, Ljava/io/InputStream;->close()V
+
+    return-object p0
+
+    :catchall_12
+    move-exception p0
+
+    invoke-virtual {v0}, Ljava/io/InputStream;->close()V
+
+    throw p0
+.end method
+
+.method private static load(Ljava/io/InputStream;)Lcz/msebera/android/httpclient/conn/util/PublicSuffixMatcher;
+    .registers 4
+
+    .line 1
+    new-instance v0, Lcz/msebera/android/httpclient/conn/util/PublicSuffixListParser;
+
+    invoke-direct {v0}, Lcz/msebera/android/httpclient/conn/util/PublicSuffixListParser;-><init>()V
+
+    new-instance v1, Ljava/io/InputStreamReader;
+
+    sget-object v2, Lcz/msebera/android/httpclient/Consts;->UTF_8:Ljava/nio/charset/Charset;
+
+    invoke-direct {v1, p0, v2}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;Ljava/nio/charset/Charset;)V
+
+    invoke-virtual {v0, v1}, Lcz/msebera/android/httpclient/conn/util/PublicSuffixListParser;->parse(Ljava/io/Reader;)Lcz/msebera/android/httpclient/conn/util/PublicSuffixList;
+
+    move-result-object p0
+
+    .line 2
+    new-instance v0, Lcz/msebera/android/httpclient/conn/util/PublicSuffixMatcher;
+
+    invoke-virtual {p0}, Lcz/msebera/android/httpclient/conn/util/PublicSuffixList;->getRules()Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Lcz/msebera/android/httpclient/conn/util/PublicSuffixList;->getExceptions()Ljava/util/List;
+
+    move-result-object p0
+
+    invoke-direct {v0, v1, p0}, Lcz/msebera/android/httpclient/conn/util/PublicSuffixMatcher;-><init>(Ljava/util/Collection;Ljava/util/Collection;)V
+
+    return-object v0
+.end method
+
+.method public static load(Ljava/net/URL;)Lcz/msebera/android/httpclient/conn/util/PublicSuffixMatcher;
+    .registers 2
+
+    .line 3
+    const-string v0, "URL"
+
+    invoke-static {p0, v0}, Lcz/msebera/android/httpclient/util/Args;->notNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    .line 4
+    invoke-virtual {p0}, Ljava/net/URL;->openStream()Ljava/io/InputStream;
+
+    move-result-object p0
+
+    .line 5
+    :try_start_9
+    invoke-static {p0}, Lcz/msebera/android/httpclient/conn/util/PublicSuffixMatcherLoader;->load(Ljava/io/InputStream;)Lcz/msebera/android/httpclient/conn/util/PublicSuffixMatcher;
+
+    move-result-object v0
+    :try_end_d
+    .catchall {:try_start_9 .. :try_end_d} :catchall_11
+
+    .line 6
+    invoke-virtual {p0}, Ljava/io/InputStream;->close()V
+
+    return-object v0
+
+    :catchall_11
+    move-exception v0
+
+    invoke-virtual {p0}, Ljava/io/InputStream;->close()V
+
+    throw v0
+.end method

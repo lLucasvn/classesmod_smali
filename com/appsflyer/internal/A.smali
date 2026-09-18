@@ -1,0 +1,91 @@
+.class public abstract synthetic Lcom/appsflyer/internal/A;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# direct methods
+.method public static synthetic a(Ljava/lang/Object;)V
+    .registers 2
+
+    .line 1
+    instance-of v0, p0, Ljava/lang/AutoCloseable;
+
+    if-eqz v0, :cond_a
+
+    check-cast p0, Ljava/lang/AutoCloseable;
+
+    invoke-interface {p0}, Ljava/lang/AutoCloseable;->close()V
+
+    return-void
+
+    :cond_a
+    instance-of v0, p0, Ljava/util/concurrent/ExecutorService;
+
+    if-eqz v0, :cond_14
+
+    check-cast p0, Ljava/util/concurrent/ExecutorService;
+
+    invoke-static {p0}, Lcom/appsflyer/internal/B;->a(Ljava/util/concurrent/ExecutorService;)V
+
+    return-void
+
+    :cond_14
+    instance-of v0, p0, Landroid/content/res/TypedArray;
+
+    if-eqz v0, :cond_1e
+
+    check-cast p0, Landroid/content/res/TypedArray;
+
+    invoke-virtual {p0}, Landroid/content/res/TypedArray;->recycle()V
+
+    return-void
+
+    :cond_1e
+    instance-of v0, p0, Landroid/media/MediaMetadataRetriever;
+
+    if-eqz v0, :cond_28
+
+    check-cast p0, Landroid/media/MediaMetadataRetriever;
+
+    invoke-virtual {p0}, Landroid/media/MediaMetadataRetriever;->release()V
+
+    return-void
+
+    :cond_28
+    instance-of v0, p0, Landroid/media/MediaDrm;
+
+    if-eqz v0, :cond_32
+
+    check-cast p0, Landroid/media/MediaDrm;
+
+    invoke-virtual {p0}, Landroid/media/MediaDrm;->release()V
+
+    return-void
+
+    :cond_32
+    instance-of v0, p0, Landroid/drm/DrmManagerClient;
+
+    if-eqz v0, :cond_3c
+
+    check-cast p0, Landroid/drm/DrmManagerClient;
+
+    invoke-virtual {p0}, Landroid/drm/DrmManagerClient;->release()V
+
+    return-void
+
+    :cond_3c
+    instance-of v0, p0, Landroid/content/ContentProviderClient;
+
+    if-eqz v0, :cond_46
+
+    check-cast p0, Landroid/content/ContentProviderClient;
+
+    invoke-virtual {p0}, Landroid/content/ContentProviderClient;->release()Z
+
+    return-void
+
+    :cond_46
+    invoke-static {p0}, Lcom/appsflyer/internal/C;->a(Ljava/lang/Object;)V
+
+    return-void
+.end method
